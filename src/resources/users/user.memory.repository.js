@@ -13,6 +13,7 @@ const create = async (userFields) => {
 
 const update = async (id, userFields) => {
   const userUpdated = users.find(user => user.id === id);
+  if(!userUpdated) {return null;}
   const keys = Object.keys(userFields);
   for(let i = 0; i < keys.length; i += 1)
   {
