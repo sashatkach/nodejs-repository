@@ -1,5 +1,6 @@
 const boards = require('../../generators/board.generator');
 const columnRepo = require('../columns/column.memory.repository');
+const taskRepo = require('../tasks/task.memory.repository');
 const Board = require('./board.model');
 
 const getAll = async () => boards;
@@ -34,6 +35,13 @@ const remove = async (id) => {
     for(let i = 0; i < boards[index].columns.length; i += 1){
       columnRepo.removeByTitle(boards[index].columns[i].title);
     }
+  }
+  
+  const deletedTasks = await taskRepo.getAll(boards[index].id);
+  
+  for(let i = 0; i < deletedTasks.length; i += 1)
+  {
+    taskRepo.remove(deletedTasks[i].id);
   }
 
   boards.splice(index, 1);

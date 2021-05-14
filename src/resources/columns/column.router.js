@@ -4,7 +4,6 @@ const { validateColumn } = require('./column.validation');
 
 router.route('/').get(async (req, res) => {
   const columns = await columnService.getAll();
-  // map column fields to exclude secret fields like "password"
   res.status(200).json(columns);
 });
 

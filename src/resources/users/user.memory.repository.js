@@ -1,4 +1,5 @@
 const users = require('../../generators/user.generator');
+const taskRepo = require('../tasks/task.memory.repository');
 const User = require('./user.model');
 
 const getAll = async () => users;
@@ -28,7 +29,7 @@ const remove = async (id) => {
   {
     return false;
   }
-
+  await taskRepo.setTasksUserNullOnDelete(users[index].id);
   users.splice(index, 1);
   return true;
 }
