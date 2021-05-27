@@ -37,7 +37,7 @@ const create = async (boardId, taskFields) => {
  * @param {string} taskId id of task in db
  * @param {string} boardId id of board in db
  * @param {TaskFields} taskFields task fields from request
- * @returns {Task} return updated task
+ * @returns {Task | null} return updated task or null if task isn't exist
  */
 const update = async (taskId, boardId, taskFields) => {
   const taskUpdated = tasks.find(task => task.id === taskId);

@@ -1,5 +1,8 @@
 import { v4 } from 'uuid';
 
+/**
+ * This class describes user in db
+ */
 class User {
   constructor({
     id = v4(),

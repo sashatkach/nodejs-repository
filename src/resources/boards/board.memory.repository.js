@@ -31,7 +31,7 @@ const create = async (boardFields) => {
  * Func which updated board
  * @param {string} id id of board in db 
  * @param {boardFields} boardFields board fields from request
- * @returns {Board} return updated board
+ * @returns {Board | null} return updated board or null if board isn't exist
  */
 const update = async (id, boardFields) => {
   const boardUpdated = boards.find(board => board.id === id);

@@ -2,14 +2,14 @@ import columnsRepo from './column.memory.repository.js';
 
 /**
  * Call column repository and get all entities
- * @returns {Column[]} return array of boards from repository
+ * @returns {Column[]} return array of columns from repository
  */
 const getAll = () => columnsRepo.getAll();
 
 /**
  * Get column by id
  * @param {string} id receive id of column entity
- * @returns {Column} return entity of board
+ * @returns {Column} return entity of column
  */
 const getById = (id) => columnsRepo.getById(id);
 

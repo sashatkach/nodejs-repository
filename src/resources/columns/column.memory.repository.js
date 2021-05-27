@@ -29,7 +29,7 @@ const create = async (columnFields) => {
  * Func which updated column
  * @param {string} id id of column in db 
  * @param {ColumnFields} columnFields column fields from request
- * @returns {Column} return updated column
+ * @returns {Column | null} return updated column or null if column isn't exist
  */
 const update = async (id, columnFields) => {
   const columnUpdated = columns.find(column => column.id === id);

@@ -15,12 +15,24 @@ const getAll = async () => users;
  */
 const getById = async (id) => users.find(user => user.id === id);
 
+
+/**
+ * Func which create user entity in db
+ * @param {UserFields} userFields user fields from request
+ * @returns {User} return created user
+ */
 const create = async (userFields) => {
   const user = new User(userFields)
   users.push(user);
   return user;
 }
 
+/**
+ * Func which updated user
+ * @param {string} id id of user in db 
+ * @param {UserFields} userFields user fields from request
+ * @returns {User | null} return updated user or null if user isn't exist
+ */
 const update = async (id, userFields) => {
   const userUpdated = users.find(user => user.id === id);
   if(!userUpdated) {return null;}
@@ -32,6 +44,11 @@ const update = async (id, userFields) => {
   return userUpdated;
 }
 
+/**
+ * Func which delete user from db
+ * @param {string} id id of user in db
+ * @returns {boolean} if deleted was succeeded return true elsewhere false
+ */
 const remove = async (id) => {
   const index = users.map(user => user.id).indexOf(id);
   if(index === -1)
