@@ -1,6 +1,6 @@
-const users = require('../../generators/user.generator');
-const taskRepo = require('../tasks/task.memory.repository');
-const User = require('./user.model');
+import { users } from '../../generators/user.generator.js';
+import taskRepo  from '../tasks/task.memory.repository.js';
+import { User } from './user.model.js';
 
 const getAll = async () => users;
 
@@ -34,4 +34,4 @@ const remove = async (id) => {
   return true;
 }
 
-module.exports = { getAll, getById, create, update, remove};
+export default { getAll, getById, create, update, remove};

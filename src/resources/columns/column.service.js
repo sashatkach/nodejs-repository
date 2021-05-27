@@ -1,4 +1,4 @@
-const columnsRepo = require('./column.memory.repository');
+import columnsRepo from './column.memory.repository.js';
 
 const getAll = () => columnsRepo.getAll();
 
@@ -10,4 +10,4 @@ const update = (id, columnFields) => columnsRepo.update(id, columnFields);
 
 const remove = (id) => columnsRepo.remove(id);
 
-module.exports = { getAll, getById, create, update, remove };
+export default { getAll, getById, create, update, remove };

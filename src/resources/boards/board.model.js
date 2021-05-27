@@ -1,8 +1,11 @@
-const uuid = require('uuid').v4;
+import { v4 } from 'uuid';
 
+/**
+ * Class which represents Board entity in db/
+ */
 class Board {
   constructor({
-    id = uuid(),
+    id = v4(),
     title = 'Column Title',
     columns = [],
   } = {}) {
@@ -12,4 +15,4 @@ class Board {
   }
 }
 
-module.exports = Board;
+export { Board };

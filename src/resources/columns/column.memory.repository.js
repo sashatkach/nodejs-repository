@@ -1,5 +1,5 @@
-const columns = require('../../generators/column.generator');
-const Column = require('./column.model');
+import { columns } from '../../generators/column.generator.js';
+import { Column } from './column.model.js';
 
 const getAll = async () => columns;
 
@@ -38,4 +38,4 @@ const removeByTitle = async (title) => {
   columns.splice(index, 1);
 }
 
-module.exports = { getAll, getById, create, update, remove, removeByTitle};
+export default { getAll, getById, create, update, remove, removeByTitle};

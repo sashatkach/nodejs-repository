@@ -18,4 +18,5 @@ function isValid(req)
     && req.body.title.length > 0
     && req.body.order.length > 0
 }
-module.exports = { validateColumn: isValid}
+
+export { isValid as validateColumn}

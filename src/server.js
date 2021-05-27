@@ -1,4 +1,4 @@
-const { PORT } = require('./common/config');
-const app = require('./app');
+import { ENV } from './common/config.js';
+import { app } from './app.js';
 
-app.listen(PORT);
+app.listen(ENV.PORT);

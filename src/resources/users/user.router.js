@@ -1,7 +1,9 @@
-const router = require('express').Router();
-const User = require('./user.model');
-const usersService = require('./user.service');
-const { validateUser } = require('./user.validation');
+import express from 'express';
+import { User } from './user.model.js';
+import usersService  from './user.service.js';
+import { validateUser } from './user.validation.js';
+
+const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   const users = await usersService.getAll();
@@ -77,4 +79,4 @@ router.route('/:id').delete(async (req, res) => {
   }
 })
 
-module.exports = router;
+export { router };

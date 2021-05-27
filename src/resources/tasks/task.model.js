@@ -1,8 +1,8 @@
-const uuid = require('uuid').v4;
+import { v4 } from 'uuid';
 
 class Task {
   constructor({
-    id = uuid(),
+    id = v4(),
     title = 'DEFAULT TASK',
     order = 'DEFAULT ORDER',
     description = 'SOME DESCRIPTION',
@@ -20,4 +20,4 @@ class Task {
   }
 }
 
-module.exports = Task;
+export { Task };

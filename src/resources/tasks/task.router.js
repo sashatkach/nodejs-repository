@@ -1,7 +1,9 @@
-const router = require('express').Router({mergeParams: true});
-const taskService = require('./task.service');
-const boardService = require('../boards/board.service');
-const { validateColumn } = require('./task.validation');
+import express from 'express';
+import taskService from './task.service.js';
+import boardService from '../boards/board.service.js';
+import { validateColumn } from './task.validation.js';
+
+const router = express.Router({mergeParams: true});
 
 router.route('/').get(async (req, res) => {
   const columns = await taskService.getAll(req.params.boardId);
@@ -70,4 +72,4 @@ router.route('/:taskId').delete(async (req, res) => {
   }
 })
 
-module.exports = router;
+export { router };

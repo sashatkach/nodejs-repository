@@ -19,4 +19,4 @@ function isValid(req)
     && req.body.login.length > 0
     && req.body.password.length > 0;
 }
-module.exports = { validateUser: isValid}
+export { isValid as validateUser};

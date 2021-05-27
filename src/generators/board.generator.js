@@ -1,25 +1,32 @@
-const faker = require('faker');
-const uuid = require('uuid').v4;
-const columns  = require('./column.generator');
-const Board = require('../resources/boards/board.model');
+import * as FakerModule from 'faker';
+import { columns }  from './column.generator.js';
+import { Board } from '../resources/boards/board.model.js';
+
+const faker = FakerModule.default;
 
 const DEFAULT_AMOUNT_BOARDS = 5;
 
 const boards = [];
 
-for(let i = 0; i < DEFAULT_AMOUNT_BOARDS; i += 1)
+/**
+ * Generate array of boards with random filling
+ * @return {Board[]} return array of random generated boards
+ */
+(function()
 {
-  const tmpColumns = [];
-  for(let j = 0; j < Math.floor(Math.random() * columns.length); j += 1)
+  for(let i = 0; i < DEFAULT_AMOUNT_BOARDS; i += 1)
   {
-    tmpColumns.push(columns[Math.floor(Math.random() * columns.length)]);
+    const tmpColumns = [];
+    for(let j = 0; j < Math.floor(Math.random() * columns.length); j += 1)
+    {
+      tmpColumns.push(columns[Math.floor(Math.random() * columns.length)]);
+    }
+    
+    boards.push(new Board({
+      title: faker.company.companyName(),
+      columns: tmpColumns
+    }))
   }
-  
-  boards.push(new Board({
-    id: uuid(),
-    title: faker.company.companyName(),
-    columns: tmpColumns
-  }))
-}
+})();
 
-module.exports = boards;
+export { boards };

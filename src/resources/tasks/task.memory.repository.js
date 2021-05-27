@@ -1,5 +1,5 @@
-const tasks = require('../../generators/task.generator');
-const Task = require('./task.model');
+import { tasks } from '../../generators/task.generator.js';
+import { Task } from './task.model.js';
 
 const getAll = async (boardId) => tasks.filter(task => task.boardId === boardId);
 
@@ -45,4 +45,4 @@ const setTasksUserNullOnDelete = async (userId) => {
   }
 }
 
-module.exports = { getAll, getById, create, update, remove,  setTasksUserNullOnDelete};
+export default { getAll, getById, create, update, remove,  setTasksUserNullOnDelete};

@@ -1,6 +1,8 @@
-const router = require('express').Router();
-const boardService = require('./board.service');
-const { validateColumn } = require('./board.validation');
+import express from 'express';
+import boardService from './board.service.js';
+import { validateColumn } from './board.validation.js';
+
+const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   const board = await boardService.getAll();
@@ -76,4 +78,4 @@ router.route('/:id').delete(async (req, res) => {
   }
 })
 
-module.exports = router;
+export { router };

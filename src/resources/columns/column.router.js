@@ -1,6 +1,8 @@
-const router = require('express').Router();
-const columnService = require('./column.service');
-const { validateColumn } = require('./column.validation');
+import express from 'express';
+import columnService from './column.service.js';
+import { validateColumn } from './column.validation.js';
+
+const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   const columns = await columnService.getAll();
@@ -76,4 +78,4 @@ router.route('/:id').delete(async (req, res) => {
   }
 })
 
-module.exports = router;
+export { router };

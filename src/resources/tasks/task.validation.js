@@ -20,4 +20,4 @@ function isValid(req)
     && req.body.boardId !== ''
     && req.body.columnId !== ''
 }
-module.exports = { validateColumn: isValid}
+export { isValid as validateColumn };

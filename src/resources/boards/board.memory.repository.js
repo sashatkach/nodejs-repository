@@ -1,18 +1,38 @@
-const boards = require('../../generators/board.generator');
-const columnRepo = require('../columns/column.memory.repository');
-const taskRepo = require('../tasks/task.memory.repository');
-const Board = require('./board.model');
+import { boards } from '../../generators/board.generator.js';
+import columnRepo from '../columns/column.memory.repository.js';
+import taskRepo  from '../tasks/task.memory.repository.js';
+import { Board } from './board.model.js';
 
+/**
+ * Grab all entities from db or from memory
+ * @returns {Board[]} return all array from db or from memory
+ */
 const getAll = async () => boards;
 
+/**
+ * Func is looking Board entity from db
+ * @param {string} id  id of object in db 
+ * @returns {Board} return Board object
+ */
 const getById =  async (id) => boards.find(board => board.id === id);
 
+/**
+ * Func which create board entity in db
+ * @param {BoardFields} boardFields board fields from request
+ * @returns {Board} return created board
+ */
 const create = async (boardFields) => {
   const board = new Board(boardFields)
   boards.push(board);
   return board;
 }
 
+/**
+ * Func which updated board
+ * @param {string} id id of object in db 
+ * @param {boardFields} boardFields board fields from request
+ * @returns {Board} return updated board
+ */
 const update = async (id, boardFields) => {
   const boardUpdated = boards.find(board => board.id === id);
   if(!boardUpdated) {return null;}
@@ -24,6 +44,11 @@ const update = async (id, boardFields) => {
   return boardUpdated;
 }
 
+/**
+ * Func which delete board from db
+ * @param {string} id id of object in db
+ * @returns {boolean} if deleted was succeeded return true elsewhere false
+ */
 const remove = async (id) => {
   const index = boards.map(board => board.id).indexOf(id);
   if(index === -1)
@@ -48,4 +73,4 @@ const remove = async (id) => {
   return true;
 }
 
-module.exports = { getAll, getById, create, update, remove};
+export default { getAll, getById, create, update, remove};
