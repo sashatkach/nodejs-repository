@@ -2,9 +2,18 @@ import { users } from '../../generators/user.generator.js';
 import taskRepo  from '../tasks/task.memory.repository.js';
 import { User } from './user.model.js';
 
+/**
+ * Grab all entities from db or from memory
+ * @returns {User[]} return all array from db or from memory
+ */
 const getAll = async () => users;
 
-const getById =  async (id) => users.find(user => user.id === id);
+/**
+ * Func is looking User entity from db
+ * @param {string} id  id of user in db
+ * @returns {User} return User object
+ */
+const getById = async (id) => users.find(user => user.id === id);
 
 const create = async (userFields) => {
   const user = new User(userFields)

@@ -1,5 +1,8 @@
 import { v4 } from 'uuid';
 
+/**
+ * This class describes task in db
+ */
 class Task {
   constructor({
     id = v4(),

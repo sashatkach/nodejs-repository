@@ -9,8 +9,8 @@ const getAll = async () => columns;
 
 /**
  * Func is looking Column entity from db
- * @param {string} id  id of object in db
- * @returns {Column} return Board object
+ * @param {string} id  id of column in db
+ * @returns {Column} return Column object
  */
 const getById =  async (id) => columns.find(column => column.id === id);
 
@@ -27,7 +27,7 @@ const create = async (columnFields) => {
 
 /**
  * Func which updated column
- * @param {string} id id of object in db 
+ * @param {string} id id of column in db 
  * @param {ColumnFields} columnFields column fields from request
  * @returns {Column} return updated column
  */
@@ -44,7 +44,7 @@ const update = async (id, columnFields) => {
 
 /**
  * Func which delete column from db
- * @param {string} id id of object in db
+ * @param {string} id id of column in db
  * @returns {boolean} if deleted was succeeded return true elsewhere false
  */
 const remove = async (id) => {

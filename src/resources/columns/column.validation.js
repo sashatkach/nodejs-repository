@@ -17,7 +17,7 @@ function intersection(setA, setB) {
 }
 
 /**
- * Chechk if request is valid
+ * Check if request is valid
  * @param {Request<ParamsDictionary, any, any, QueryString.ParsedQs, Record<string, any>>} req receive request from routes 
  * @returns {boolean} return if request is valid
  */

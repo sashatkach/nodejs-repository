@@ -11,7 +11,7 @@ const getAll = async () => boards;
 
 /**
  * Func is looking Board entity from db
- * @param {string} id  id of object in db 
+ * @param {string} id  id of board in db 
  * @returns {Board} return Board object
  */
 const getById =  async (id) => boards.find(board => board.id === id);
@@ -29,7 +29,7 @@ const create = async (boardFields) => {
 
 /**
  * Func which updated board
- * @param {string} id id of object in db 
+ * @param {string} id id of board in db 
  * @param {boardFields} boardFields board fields from request
  * @returns {Board} return updated board
  */
@@ -46,7 +46,7 @@ const update = async (id, boardFields) => {
 
 /**
  * Func which delete board from db
- * @param {string} id id of object in db
+ * @param {string} id id of board in db
  * @returns {boolean} if deleted was succeeded return true elsewhere false
  */
 const remove = async (id) => {

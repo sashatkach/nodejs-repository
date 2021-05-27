@@ -1,3 +1,9 @@
+/**
+ * Function which make intersection between two sets
+ * @param {Set} setA First set for comparing 
+ * @param {Set} setB Second set for comparing
+ * @returns {Set} return the result set of intersection
+ */
 function intersection(setA, setB) {
   const _intersection = new Set();
   setB.forEach(elem => {
@@ -8,6 +14,11 @@ function intersection(setA, setB) {
   return _intersection;
 }
 
+/**
+ * Check if request is valid
+ * @param {Request<ParamsDictionary, any, any, QueryString.ParsedQs, Record<string, any>>} req receive request from routes 
+ * @returns {boolean} return if request is valid
+ */
 function isValid(req)
 {
   const setFields = new Set(['title', 'order', 'description', 'userId', 'boardId']);
