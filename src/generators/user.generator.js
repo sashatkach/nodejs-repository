@@ -9,7 +9,7 @@ const DEFAULT_AMOUNT_USERS = 10;
 
 /**
  * Generate array of users with random filling
- * @return {Column[]} return array of random generated users
+ * @return {User[]} return array of random generated users
  */
 (function()
 {

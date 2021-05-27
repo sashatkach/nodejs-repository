@@ -1,5 +1,8 @@
 import { v4 } from 'uuid';
 
+/**
+ * This class describes column in db
+ */
 class Column {
   constructor({
     id = v4(),

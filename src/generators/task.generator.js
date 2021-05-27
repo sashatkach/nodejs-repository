@@ -12,7 +12,7 @@ const DEFAULT_AMOUNT_TASKS = 10;
 
 /**
  * Generate array of tasks with random filling
- * @return {Column[]} return array of random generated tasks
+ * @return {Task[]} return array of random generated tasks
  */
 (function()
 {
